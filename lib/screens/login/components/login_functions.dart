@@ -22,13 +22,20 @@ class LoginFunctions {
       String uuid  = result.user!.uid;
       try {
 
-        var userData = await FirebaseFirestore.instance.collection('users').doc(uuid).withConverter<UserMain>(
-          fromFirestore: (snapshot, _) => UserMain.fromJson(snapshot.data()!),
-          toFirestore: (user, _) => user.toJson(),).get();
-        // )
-        //     .snapshots(
-        //   includeMetadataChanges: true,
-        // );
+        var snapshot = await FirebaseFirestore.instance.collection('users').doc(uuid).get();
+        Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
+
+        var userData = UserMain(uuid: data['uuid'],
+            username: data['username'],
+            surname: data['surname'],
+            firstname: data['firstname'],
+            othername: data['othername'],
+            sex: data['sex'],
+            role: data['role'],
+            dob: data['dob'],
+            pic: data['pic']);
+
+            // .map((DocumentSnapshot<Map<String, dynamic>> snapshot) => UserMain.fromJson(snapshot.data()!));
         return ['success', userData];
       } catch (e) {
 
