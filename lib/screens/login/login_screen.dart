@@ -60,25 +60,24 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     );
   }
 
-  Future<String?> _authOperationLogIn(Future<List?> func) async {
+  Future<String?> _authOperationLogIn(Future<String?> func) async {
     await _operation?.cancel();
     _operation = CancelableOperation.fromFuture(func);
-    final List? res = await _operation?.valueOrCancellation();
+    final String? res = await _operation?.valueOrCancellation();
     if (_operation?.isCompleted == true) {
       // DialogBuilder(context).showResultDialog(res ?? 'Successful.');
-     if(res?[0] == 'success'){
-
+     if(res == 'success'){
 
        ScaffoldSnackbar.of(context).show('Logged In');
        Navigator.push(
          context,
-         MaterialPageRoute(builder: (context) => HomeScreen(userMain: res?[1],)),
+         MaterialPageRoute(builder: (context) => HomeScreen()),
        );
      }else{
-       ScaffoldSnackbar.of(context).show(res?[0]);
+       ScaffoldSnackbar.of(context).show(res!);
      }
     }
-    return res?[0];
+    return res!;
   }
 
    Future<String?> _authOperationSignUp(Future<String?> func) async {

@@ -21,7 +21,7 @@
     othername: json['othername']! as String,
     sex: json['sex']! as String,
     role: json['role']! as String,
-    dob: json['dob']! as DateTime,
+    dob: json['dob']! ,
     pic: json['pic']! as String,
   );
 
@@ -33,7 +33,7 @@
   final String othername;
   final String sex;
   final String role;
-  final DateTime dob;
+  final dob;
   final String pic;
 
   Map<String, Object?> toJson() {

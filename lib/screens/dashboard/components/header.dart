@@ -7,9 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Header extends StatelessWidget {
   const Header({
     Key? key,
-    required this.userMain
+    // required this.userMain
   }) : super(key: key);
-  final UserMain userMain;
+  // final UserMain userMain;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Header extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello, " + userMain.username + " 👋🏾",
+                "Hello, " + 'Oteng' + " 👋🏾",
                 style: Theme.of(context).textTheme.headline6,
               ),
               SizedBox(
@@ -41,7 +41,7 @@ class Header extends StatelessWidget {
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
-        ProfileCard(userMain: this.userMain,)
+        ProfileCard()
       ],
     );
   }
@@ -50,9 +50,9 @@ class Header extends StatelessWidget {
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
     Key? key,
-    required this.userMain
+    // required this.userMain
   }) : super(key: key);
-  final UserMain userMain;
+  // final UserMain userMain;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,7 +75,7 @@ class ProfileCard extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              child: Text(this.userMain.username),
+              child: Text('Oteng'),
             ),
           Icon(Icons.keyboard_arrow_down),
         ],

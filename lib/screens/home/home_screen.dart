@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 import 'components/side_menu.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({required this.userMain});
-  final UserMain userMain;
+  // HomeScreen({required this.userMain});
+  // final UserMain userMain;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //key: context.read<MenuController>().scaffoldKey,
-      drawer: SideMenu(userMain: this.userMain,),
+      drawer: SideMenu(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,12 +22,12 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 // default flex = 1
                 // and it takes 1/6 part of the screen
-                child: SideMenu(userMain: this.userMain,),
+                child: SideMenu(),
               ),
             Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
-              child: DashboardScreen(userMain: this.userMain),
+              child: DashboardScreen(),
             ),
           ],
         ),

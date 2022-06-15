@@ -13,40 +13,50 @@ class LoginFunctions {
   final BuildContext context;
 
   /// Login action that will be performed on click to action button in login mode.
-  Future<List?> onLogin(LoginData loginData) async {
+  Future<String?> onLogin(LoginData loginData) async {
+
     try {
       var result = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
           email: loginData.email.trim().toLowerCase(), password: loginData.password);
       print('Signed in: ${result.user?.uid}');
       String uuid  = result.user!.uid;
-      try {
 
-        var snapshot = await FirebaseFirestore.instance.collection('users').doc(uuid).get();
-        Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
+      // var res;
+        //
+        // FirebaseFirestore.instance
+        //     .collection('users')
+        //     .doc(uuid)
+        //     .get()
+        //     .then((DocumentSnapshot documentSnapshot) {
+        //   if (documentSnapshot.exists) {
+        //     print('Document data: ${documentSnapshot.data()}');
+        //     var data = documentSnapshot;
+        //     var userData = UserMain(uuid: data['uuid'],
+        //         username: data['username'],
+        //         surname: data['surname'],
+        //         firstname: data['firstname'],
+        //         othername: data['othername'],
+        //         sex: data['sex'],
+        //         role: data['role'],
+        //         dob: data['dob'],
+        //         pic: data['pic']);
+        //
+        //     // .map((DocumentSnapshot<Map<String, dynamic>> snapshot) => UserMain.fromJson(snapshot.data()!));
+        //     res = 'success'+uuid;
+        //   } else {
+        //     print('Document does not exist on the database');
+        //    res =   'Something went wrong';
+        //   }
+        // });
 
-        var userData = UserMain(uuid: data['uuid'],
-            username: data['username'],
-            surname: data['surname'],
-            firstname: data['firstname'],
-            othername: data['othername'],
-            sex: data['sex'],
-            role: data['role'],
-            dob: data['dob'],
-            pic: data['pic']);
+      return 'success';
 
-            // .map((DocumentSnapshot<Map<String, dynamic>> snapshot) => UserMain.fromJson(snapshot.data()!));
-        return ['success', userData];
-      } catch (e) {
-
-        print('Signed in Error: $e');
-        return  ['Something went wrong'];
-      }
     }on FirebaseAuthException catch (e) {
       print('Signed up Error: $e');
-      return  [e.message];
+      return  e.message;
     }
-  }
+   }
 
   /// Sign up action that will be performed on click to action button in sign up mode.
   Future<String?> onSignup(SignUpData signupData) async {

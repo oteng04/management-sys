@@ -13,8 +13,8 @@ import '../../models/user.dart';
 import 'components/header.dart';
 
 class DashboardScreen extends StatelessWidget {
-  DashboardScreen({required this.userMain});
-  final UserMain userMain;
+  // DashboardScreen({required this.userMain});
+  // final UserMain userMain;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,18 +24,7 @@ class DashboardScreen extends StatelessWidget {
           padding: EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
-              StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').doc(this.userMain.uuid).snapshots(),
-                builder: (context,snapshot){
-                  if (!snapshot.hasData) {
-                    return Header(userMain: this.userMain);
-                  } else {
-
-                  return Header(userMain: this.userMain);
-                  }
-
-                },
-              ),
+              Header(),
               SizedBox(height: defaultPadding),
               MiniInformation(),
               SizedBox(height: defaultPadding),

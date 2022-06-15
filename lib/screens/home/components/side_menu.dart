@@ -7,9 +7,9 @@ import '../../../models/user.dart';
 class SideMenu extends StatelessWidget {
   const SideMenu({
     Key? key,
-  required this.userMain
+  // required this.userMain
   }) : super(key: key);
-  final UserMain userMain;
+  // final UserMain userMain;
   @override
   Widget build(BuildContext context) {
     return Drawer(
