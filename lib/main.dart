@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home: _getLandingPage(),
+      home: HomeScreen(),
     );
   }
 

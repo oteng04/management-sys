@@ -10,10 +10,10 @@ import 'package:management_app/screens/dashboard/components/user_details_widget.
 import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
-import 'components/header.dart';
+import '../dashboard/components/header.dart';
 
-class DashboardScreen extends StatelessWidget {
-  // DashboardScreen({required this.userMain});
+class ActivityDatabaseScreen extends StatelessWidget {
+  // ActivityActorsScreen({required this.userMain});
   // final UserMain userMain;
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class DashboardScreen extends StatelessWidget {
             children: [
               Header(),
               SizedBox(height: defaultPadding),
-              MiniInformation(),
-              SizedBox(height: defaultPadding),
+              // MiniInformation(),
+              // SizedBox(height: defaultPadding),
               // Row(
               //   crossAxisAlignment: CrossAxisAlignment.start,
               //   children: [

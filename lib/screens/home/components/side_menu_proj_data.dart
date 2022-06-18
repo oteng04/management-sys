@@ -1,16 +1,17 @@
 import 'package:management_app/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:management_app/screens/home/Proj_data.dart';
+import 'package:management_app/screens/home/activity_database.dart';
 
 import '../../../models/user.dart';
 import '../Proj_activity.dart';
-import '../Proj_data.dart';
-import '../activity_database.dart';
+import '../home_screen.dart';
 import '../indicators.dart';
 import '../profile_main.dart';
 
-class SideMenu extends StatelessWidget {
-  const SideMenu({
+class SideMenuProjData extends StatelessWidget {
+  const SideMenuProjData({
     Key? key,
   // required this.userMain
   }) : super(key: key);
@@ -42,10 +43,14 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(
               title: "Dashboard",
               svgSrc: "assets/icons/menu_dashbord.svg",
-              press: () {},
-              color: greenColor,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
+              color: Colors.white54,
             ),
-
             DrawerListTile(
               title: "Project Actors",
               svgSrc: "assets/icons/menu_tran.svg",
@@ -78,7 +83,7 @@ class SideMenu extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => ProjDataMainScreen()),
                 );
               },
-              color: Colors.white54,
+              color: greenColor,
             ),
             DrawerListTile(
               title: "Indicators",
@@ -91,6 +96,16 @@ class SideMenu extends StatelessWidget {
               },
               color: Colors.white54,
             ),
+            // DrawerListTile(
+            //   title: "Dummy",
+            //   svgSrc: "assets/icons/menu_store.svg",
+            //   press: () {},
+            // ),
+            // DrawerListTile(
+            //   title: "Dummy",
+            //   svgSrc: "assets/icons/menu_notification.svg",
+            //   press: () {},
+            // ),
             DrawerListTile(
               title: "Profile",
               svgSrc: "assets/icons/menu_profile.svg",
