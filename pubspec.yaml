@@ -32,6 +32,8 @@ dependencies:
   provider: ^6.0.1
   fl_chart: ^0.36.1
   google_fonts: ^2.1.0
+  select_form_field: ^2.2.0
+#  responsive_ui: ^3.0.0
   flutter_icons:
     git:
       url: https://github.com/adarsh-technocrat/flutter-icons.git
@@ -39,6 +41,7 @@ dependencies:
   json_annotation: ^4.0.1
   json_serializable: ^4.1.2
   build_runner: ^2.0.3
+
   intl: ^0.17.0
   table_calendar: ^3.0.0
   flutter_screenutil: ^5.0.0+2
@@ -47,6 +50,7 @@ dependencies:
   firebase_core: ^1.8.0
   firebase_auth: ^3.1.4
   cloud_firestore: ^2.5.4
+  syncfusion_flutter_datepicker:
   progress_dialog:
     git:
       url: https://github.com/mostafaAbdelazim/progress_dialog.git

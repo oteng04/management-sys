@@ -10,6 +10,7 @@ import 'package:management_app/screens/dashboard/components/user_details_widget.
 import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
+import '../dashboard/components/activity_actors_card.dart';
 import '../dashboard/components/header.dart';
 
 class ActivityActorsScreen extends StatelessWidget {
@@ -26,8 +27,8 @@ class ActivityActorsScreen extends StatelessWidget {
             children: [
               Header(),
               SizedBox(height: defaultPadding),
-              // MiniInformation(),
-              // SizedBox(height: defaultPadding),
+              ActivityActorsCard(),
+              SizedBox(height: defaultPadding),
               // Row(
               //   crossAxisAlignment: CrossAxisAlignment.start,
               //   children: [

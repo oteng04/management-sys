@@ -1,18 +1,27 @@
 import 'package:management_app/core/constants/color_constants.dart';
-import 'package:management_app/models/daily_info_model.dart';
 
 import 'package:management_app/responsive.dart';
 import 'package:management_app/screens/activity_actors/activity_actors.dart';
-import 'package:management_app/screens/dashboard/components/mini_information_widget.dart';
 import 'package:management_app/screens/forms/input_form.dart';
 import 'package:flutter/material.dart';
 import 'package:management_app/screens/home/Proj_activity.dart';
 import 'package:management_app/screens/home/Proj_data.dart';
 import 'package:management_app/screens/home/activity_database.dart';
+import 'package:management_app/screens/home/agg_main.dart';
+import 'package:management_app/screens/home/exp_main.dart';
+import 'package:management_app/screens/home/far_main.dart';
+import 'package:management_app/screens/home/fin_main.dart';
+import 'package:management_app/screens/home/fir_main.dart';
 import 'package:management_app/screens/home/indicators.dart';
+import 'package:management_app/screens/home/trans_main.dart';
 
-class MiniInformation extends StatelessWidget {
-  const MiniInformation({
+import '../../../models/activity_actors_model.dart';
+import '../../home/med_main.dart';
+import '../../home/pro_main.dart';
+import 'activity_actors_widget.dart';
+
+class ActivityActorsCard extends StatelessWidget {
+  const ActivityActorsCard({
     Key? key,
   }) : super(key: key);
 
@@ -52,12 +61,12 @@ class MiniInformation extends StatelessWidget {
         ),
         SizedBox(height: defaultPadding),
         Responsive(
-          mobile: InformationCard(
+          mobile: ActorsCard(
             crossAxisCount: _size.width < 650 ? 2 : 4,
             childAspectRatio: _size.width < 650 ? 1.2 : 1,
           ),
-          tablet: InformationCard(),
-          desktop: InformationCard(
+          tablet: ActorsCard(),
+          desktop: ActorsCard(
             childAspectRatio: _size.width < 1400 ? 1.2 : 1.4,
           ),
         ),
@@ -66,8 +75,8 @@ class MiniInformation extends StatelessWidget {
   }
 }
 
-class InformationCard extends StatelessWidget {
-  const InformationCard({
+class ActorsCard extends StatelessWidget {
+  const ActorsCard({
     Key? key,
     this.crossAxisCount = 4,
     this.childAspectRatio = 1,
@@ -81,7 +90,7 @@ class InformationCard extends StatelessWidget {
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: dailyDatas.length,
+      itemCount: datum.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
@@ -89,28 +98,52 @@ class InformationCard extends StatelessWidget {
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) =>
-          MiniInformationWidget(dailyData: dailyDatas[index],onClick: (){
+          ActivityActorsWidget(dailyData: datum[index],onClick: (){
             if(index == 0){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProjActivityScreen()),
+                MaterialPageRoute(builder: (context) => FirMainScreen()),
               );
             }else if(index == 1){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ActivityDBMainScreen()),
+                MaterialPageRoute(builder: (context) => ExpMainScreen()),
               );
             }
             else if(index == 2){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProjDataMainScreen()),
+                MaterialPageRoute(builder: (context) => AggMainScreen()),
               );
             }
             else if(index == 3){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => IndicatorMainScreen()),
+                MaterialPageRoute(builder: (context) => ProMainScreen()),
+              );
+            }
+            else if(index == 4){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TransMainScreen()),
+              );
+            }
+            else if(index == 5){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FarMainScreen()),
+              );
+            }
+            else if(index == 6){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FinMainScreen()),
+              );
+            }
+            else if(index == 7){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MedMainScreen()),
               );
             }
           },),

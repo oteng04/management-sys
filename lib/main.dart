@@ -1,5 +1,6 @@
 import 'package:management_app/core/constants/color_constants.dart';
 import 'package:management_app/core/init/provider_list.dart';
+import 'package:management_app/screens/home/fir_main.dart';
 import 'package:management_app/screens/home/home_screen.dart';
 import 'package:management_app/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home: HomeScreen(),
+      home: _getLandingPage(),
     );
   }
 
